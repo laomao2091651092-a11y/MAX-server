@@ -30,6 +30,9 @@ public class Photo {
     @Column(length = 500)
     private String description;
 
+    /** 是否精选展示在画廊页（false=只在云端相册） */
+    private Boolean isFeatured = false;
+
     /** 上传时间 */
     private LocalDateTime createdAt;
 
@@ -56,6 +59,9 @@ public class Photo {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    public Boolean getIsFeatured() { return isFeatured; }
+    public void setIsFeatured(Boolean isFeatured) { this.isFeatured = isFeatured; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }

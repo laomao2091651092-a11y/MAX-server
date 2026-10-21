@@ -70,4 +70,20 @@ public class PhotoService {
         // 删数据库记录
         photoRepository.deleteById(id);
     }
+
+    /** 切换精选展示状态 */
+    public Photo toggleFeatured(Long id, boolean featured) {
+        Photo p = photoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("照片不存在: " + id));
+        p.setIsFeatured(featured);
+        return photoRepository.save(p);
+    }
+
+    /** 修改照片标题 */
+    public Photo rename(Long id, String title) {
+        Photo p = photoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("照片不存在: " + id));
+        p.setTitle(title);
+        return photoRepository.save(p);
+    }
 }

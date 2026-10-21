@@ -14,4 +14,7 @@ public interface PhotoRepository extends JpaRepository<Photo, Long> {
 
     /** 按分类查（竖屏/横屏） */
     List<Photo> findByCategoryOrderByCreatedAtDesc(String category);
+
+    /** 查精选展示的照片（画廊页用） */
+    List<Photo> findByIsFeaturedTrueOrderByCreatedAtDesc();
 }
